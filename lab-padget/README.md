@@ -1,0 +1,96 @@
+# Lab 23: Testing Angular Controllers
+
+## Description
+For this lab wrote a series of tests for our previous cow say app.
+
+* [Cowsay](http://www.cowsays.com)
+
+For more information see:
+* [Class 23](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-23-testing-controllers)
+* [Lab 23](https://github.com/codefellows-seattle-javascript-401d15/23-testing-controllers)
+* [Class 22](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-22-angular-controllers)
+* [Lab 22](https://github.com/codefellows-seattle-javascript-401d15/22-angular-controllers)
+
+## Version
+* 0.1.0
+
+## Installation
+Please visit the following pages for how to install your project locally.
+
+* [Cloning A Repository](https://help.github.com/articles/cloning-a-repository/)
+* [Fork A Repo](https://help.github.com/articles/fork-a-repo/)
+* [Forking](https://guides.github.com/activities/forking/)
+
+### Node
+You need to have node.js installed.
+* [Download Node](https://nodejs.org/en/)
+
+### NPM Packages
+* [NPM Docs](https://docs.npmjs.com)
+* [NPM package.json](https://docs.npmjs.com/files/package.json)
+
+### JSON Configuration
+Initializing package.json
+```
+npm init
+
+npm install -S
+
+npm install -D
+```
+
+Add the following to package.json:
+```
+"scripts": {
+  "build": "webpack",
+  "watch": "webpack-dev-server --inline --hot"
+}
+```
+
+### Dependencies
+The result of installation above.
+
+```
+"dependencies": {
+
+},
+"devDependencies": {
+
+}
+```
+
+## Application
+In Terminal run `webpack`
+In your browser visit `http://localhost:8080/`
+
+To change the cowsay ASCII art update index.js using the following resource:
+https://helloacm.com/cowsay/
+
+Add `$log.log(cowsay);` to index.js in the `CowsayController` function.
+Open your console in the web browser and explore cowsay.
+
+## Running Tests
+In [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (Terminal) enter the command:
+
+...
+
+## Resources
+* [Testing Controllers](http://www.bradoncode.com/blog/2015/06/05/ngmock-fundamentals-testing-controllers/)
+* [End to End Testing](https://docs.angularjs.org/guide/e2e-testing)
+* [Testing with Protractor](http://www.ng-newsletter.com/posts/practical-protractor.html)
+* [Protractor Tutorial](http://www.protractortest.org/#/tutorial)
+* [Learn Angular](https://thinkster.io/a-better-way-to-learn-angularjs)
+* [Guide to AngularJS](https://docs.angularjs.org/guide)
+* [What is Webpack](https://webpack.github.io/docs/what-is-webpack.html)
+* [Webpack Tutorial](https://webpack.github.io/docs/tutorials/getting-started/)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget) file for details.
+
+## Acknowledgments
+* Code Fellows
+* Scott Schmidt, Instructor
+* Cayla Zabel, Teaching Assistant
+* Devon Hackley, Teaching Assistant
+* Thomas Martinez, Teaching Assistant
+* JR Iriarte, Teaching Assistant
