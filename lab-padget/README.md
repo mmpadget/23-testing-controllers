@@ -44,6 +44,7 @@ karma -init
 Add the following to package.json:
 ```
 "scripts": {
+  "test": "karma start",
   "build": "webpack",
   "watch": "webpack-dev-server --inline --hot"
 }
@@ -114,7 +115,7 @@ Do you want Karma to watch all the files and run the tests on change ?
 ## Running Tests
 In [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (Terminal) enter the command:
 
-...
+karma start
 
 ## Resources
 * [Testing Controllers](http://www.bradoncode.com/blog/2015/06/05/ngmock-fundamentals-testing-controllers/)

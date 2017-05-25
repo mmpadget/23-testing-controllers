@@ -1,6 +1,9 @@
 // Karma configuration
 // Generated on Thu May 25 2017 10:53:17 GMT-0700 (PDT)
 
+const webpack = require('./webpack.config.js');
+delete webpack.entry;
+
 module.exports = function(config) {
   config.set({
 
@@ -15,19 +18,22 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*-test.js'
+      'app/index.js',
+      'test/**/*-test.js',
     ],
 
 
     // list of files to exclude
     exclude: [
-      'no'
+      'no',
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'app/index.js': ['webpack'],
+      'test/**/*-test.js': ['webpack'],
     },
 
 
@@ -62,9 +68,10 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
+    // true
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
-  })
-}
+    concurrency: Infinity,
+  });
+};
