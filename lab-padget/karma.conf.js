@@ -35,12 +35,14 @@ module.exports = function(config) {
       'app/index.js': ['webpack'],
       'test/**/*-test.js': ['webpack'],
     },
+    // before we use these files for our tests, we need to run webpack on them.
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    // reporters: ['progress'],
+    reporters: ['mocha'], // googe: karma mocha reporter as -D
 
 
     // web server port
@@ -54,6 +56,7 @@ module.exports = function(config) {
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
+    // can change to debug. try logging config.
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -63,6 +66,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
+    // can search: chrome headless, phantom js.
 
 
     // Continuous Integration mode

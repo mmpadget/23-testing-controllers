@@ -38,6 +38,8 @@ npm install -S angular babel-core babel-loader babel-preset-es2015 css-loader ex
 
 npm i -D angular-mocks jasmine jasmine-core karma karma-chrome-launcher karma-jasmine karma-webpack webpack-dev-server
 
+npm install karma-mocha-reporter --save-dev
+
 karma -init
 ```
 
@@ -47,6 +49,15 @@ Add the following to package.json:
   "test": "karma start",
   "build": "webpack",
   "watch": "webpack-dev-server --inline --hot"
+}
+
+or
+
+"scripts": {
+  "test-watch": "karma start",
+  "build": "webpack",
+  "watch": "webpack-dev-server --inline --hot",
+  "test": "karma start --single-run"
 }
 ```
 
