@@ -85,7 +85,7 @@ In [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (Terminal) enter the 
 * [Webpack Tutorial](https://webpack.github.io/docs/tutorials/getting-started/)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget/23-testing-controllers/blob/lab-23/lab-padget/LICENSE) file for details.
 
 ## Acknowledgments
 * Code Fellows
