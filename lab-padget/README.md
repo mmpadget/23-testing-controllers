@@ -34,9 +34,9 @@ Initializing package.json
 ```
 npm init
 
-npm install -S
+npm install -S angular babel-core babel-loader babel-preset-es2015 css-loader extract-text-webpack-plugin html-webpack-plugin node-sass sass-loader webpack style-loader
 
-npm install -D
+npm i -D angular-mocks jasmine jasmine-core karma karma-chrome-launcher karma-jasmine karma-webpack webpack-dev-server
 ```
 
 Add the following to package.json:
@@ -52,10 +52,27 @@ The result of installation above.
 
 ```
 "dependencies": {
-
+  "angular": "^1.6.4",
+  "babel-core": "^6.24.1",
+  "babel-loader": "^7.0.0",
+  "babel-preset-es2015": "^6.24.1",
+  "css-loader": "^0.28.2",
+  "extract-text-webpack-plugin": "^2.1.0",
+  "html-webpack-plugin": "^2.28.0",
+  "node-sass": "^4.5.3",
+  "sass-loader": "^6.0.5",
+  "style-loader": "^0.18.1",
+  "webpack": "^2.6.1"
 },
 "devDependencies": {
-
+  "angular-mocks": "^1.6.4",
+  "jasmine": "^2.6.0",
+  "jasmine-core": "^2.6.2",
+  "karma": "^1.7.0",
+  "karma-chrome-launcher": "^2.1.1",
+  "karma-jasmine": "^1.1.0",
+  "karma-webpack": "^2.0.3",
+  "webpack-dev-server": "^2.4.5"
 }
 ```
 
