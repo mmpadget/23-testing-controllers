@@ -1,0 +1,27 @@
+{
+  "name": "lab-padget",
+  "version": "0.1.0",
+  "description": "Lab 23",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start",
+    "build": "webpack",
+    "watch": "webpack-dev-server --inline --hot",
+    "lint": "script for linting your JS with eslint",
+    "test-watch": "script for running karma on file system changes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmpadget/23-testing-controllers.git"
+  },
+  "keywords": [
+    "lab",
+    "23"
+  ],
+  "author": "Michael",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmpadget/23-testing-controllers/issues"
+  },
+  "homepage": "https://github.com/mmpadget/23-testing-controllers#readme"
+}
