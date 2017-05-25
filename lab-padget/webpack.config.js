@@ -1,20 +1,22 @@
 'use strict';
 
-// devtool: 'source-map'
-
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  // 1. devtool: 'source-map'
+  devtool: 'eval',
   entry: `${__dirname}/app/index.js`,
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/build`,
+    // 2. path: `${__dirname}/build`,
   },
   plugins: [
     new HTMLPlugin({template: `${__dirname}/app/index.html`}),
     new ExtractTextPlugin('bundle.css'),
-    // new ExtractTextPlugin({filename: 'bundle.css'})
+    // 1. new ExtractTextPlugin({filename: 'bundle.css'})
+    // 2. new ExtractPlugin('bundle-[hash].css'),
   ],
   module: {
     loaders: [
@@ -35,7 +37,7 @@ module.exports = {
   },
 };
 
-// use: ExtractTextPlugin.extract(
+// 1. use: ExtractTextPlugin.extract(
 //   {
 //     use: [
 //       { loader: 'css-loader',  options: { sourceMap: true } },
@@ -49,3 +51,17 @@ module.exports = {
 //     ],
 //   }
 // );
+
+// 2. module: {
+//   rules: [
+//     {
+//       test: /\.js$/,
+//       exclude: /node_modules/,
+//       loader: 'babel-loader',
+//     },
+//     {
+//       test: /\.scss$/,
+//       loader: ExtractPlugin.extract(['css-loader', 'sass-loader']),
+//     },
+//   ],
+// }
