@@ -81,6 +81,8 @@ The result of installation above.
 
 ## Application
 In Terminal run `webpack`
+In Terminal run `npm run watch`
+
 In your browser visit `http://localhost:8080/`
 
 To change the cowsay ASCII art update index.js using the following resource:

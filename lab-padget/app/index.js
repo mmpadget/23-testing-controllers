@@ -12,33 +12,35 @@ cowsayApp.controller('CowsayController', ['$log', CowsayController]);
 
 function CowsayController($log) {
   $log.debug('#CowsayController');
+  this.$onInit = () => {
+    $log.log('check this out', this);
 
-  $log.log('check this out', this);
+    this.title = 'Ninja Turtle Says';
+    this.history = [];
 
-  this.title = 'Ninja Turtle Says';
-  this.history = [];
+    cowsay.list((err, cows) => {
+      this.cowfiles = cows;
+      this.current = this.cowfiles[0];
+    });
 
-  cowsay.list((err, cows) => {
-    this.cowfiles = cows;
-    this.current = this.cowfiles[0];
-  });
+    this.update = function(input) {
+      $log.debug('#update');
+      return cowsay.say({text: input || 'Turtle power', f: this.current});
+    };
 
-  this.update = function(input) {
-    $log.debug('#update');
-    return cowsay.say({text: input || 'Turtle power', f: this.current});
+    this.speak = function(input) {
+      $log.debug('#speak');
+      this.spoken = this.update(input);
+      this.history.push(this.spoken);
+    };
+
+    this.undo = function() {
+      $log.debug('#undo');
+      this.history.pop();
+      this.spoken = this.history[this.history.length - 1] || '';
+    };
   };
 
-  this.speak = function(input) {
-    $log.debug('#speak');
-    this.spoken = this.update(input);
-    this.history.push(this.spoken);
-  };
-
-  this.undo = function() {
-    $log.debug('#undo');
-    this.history.pop();
-    this.spoken = this.history[this.history.length - 1] || '';
-  };
 }
 
 cowsayApp.controller('NavigationController', ['$log', NavigationController]);

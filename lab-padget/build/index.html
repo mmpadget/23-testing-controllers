@@ -2,8 +2,8 @@
 <html ng-app="cowsayApp">
   <head>
     <meta charset="utf-8">
-    <title>Welcome to Cowville</title>
-  </head>
+    <title>Welcome to Turtle Town</title>
+  <link href="bundle.css" rel="stylesheet"></head>
   <body>
     <header>
       <nav ng-controller="NavigationController as navCtrl">
@@ -17,7 +17,7 @@
     <main>
       <section
         ng-controller="CowsayController as cowsayCtrl"
-        ng-init="cowsayCtrl.current = 'squirrel'">
+        ng-init="cowsayCtrl.current = 'turtle'">
         <h2>{{ cowsayCtrl.title }}</h2>
         <pre>
           {{ cowsayCtrl.update(cowsayCtrl.text) }}
@@ -35,7 +35,7 @@
           <button type="submit" name="speak">Speak!</button>
 
           <div ng-show="cowsayCtrl.spoken">
-            <pre>
+            <pre class="spoken">
               {{ cowsayCtrl.spoken }}
             </pre>
             <button type="button" name="undo" ng-click="cowsayCtrl.undo()">Undo!</button>

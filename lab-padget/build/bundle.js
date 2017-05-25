@@ -63,14 +63,14 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
+__webpack_require__(5);
 module.exports = angular;
 
 
@@ -78,9 +78,9 @@ module.exports = angular;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baloon = __webpack_require__(4);
-var cows = __webpack_require__(6);
-var faces = __webpack_require__(7);
+var baloon = __webpack_require__(7);
+var cows = __webpack_require__(9);
+var faces = __webpack_require__(10);
 
 exports.say = function (options) {
 	return doIt(options, true);
@@ -104,6 +104,24 @@ function doIt (options, sayAloud) {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports) {
 
 /**
@@ -33480,11 +33498,15 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 3 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+__webpack_require__(4);
+__webpack_require__(2);
+__webpack_require__(3);
 
 var angular = __webpack_require__(0);
 var cowsay = __webpack_require__(1);
@@ -33496,33 +33518,33 @@ function CowsayController($log) {
   var _this = this;
 
   $log.debug('#CowsayController');
+  this.$onInit = function () {
+    $log.log('check this out', _this);
 
-  $log.log('check this out', this);
+    _this.title = 'Ninja Turtle Says';
+    _this.history = [];
 
-  this.title = 'Welcome to Meowsay';
-  this.history = [];
+    cowsay.list(function (err, cows) {
+      _this.cowfiles = cows;
+      _this.current = _this.cowfiles[0];
+    });
 
-  cowsay.list(function (err, cows) {
-    _this.cowfiles = cows;
-    _this.current = _this.cowfiles[0];
-  });
+    _this.update = function (input) {
+      $log.debug('#update');
+      return cowsay.say({ text: input || 'Turtle power', f: this.current });
+    };
 
-  this.update = function (input) {
-    $log.debug('#update');
-    // return cowsay.say({text: input || 'I\'m a kitty', f: 'meow'});
-    return cowsay.say({ text: input || 'moooo', f: this.current });
-  };
+    _this.speak = function (input) {
+      $log.debug('#speak');
+      this.spoken = this.update(input);
+      this.history.push(this.spoken);
+    };
 
-  this.speak = function (input) {
-    $log.debug('#speak');
-    this.spoken = this.update(input);
-    this.history.push(this.spoken);
-  };
-
-  this.undo = function () {
-    $log.debug('#undo');
-    this.history.pop();
-    this.history[this.history.length - 1] || '';
+    _this.undo = function () {
+      $log.debug('#undo');
+      this.history.pop();
+      this.spoken = this.history[this.history.length - 1] || '';
+    };
   };
 }
 
@@ -33532,22 +33554,22 @@ function NavigationController($log) {
   $log.debug('#NavigationController');
 
   this.routes = [{
-    name: 'home',
+    name: 'Home',
     url: '/home'
   }, {
-    name: 'about',
+    name: 'About',
     url: '/about'
   }, {
-    name: 'contact',
+    name: 'Contact',
     url: '/contact-us'
   }];
 }
 
 /***/ }),
-/* 4 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var os = __webpack_require__(9);
+var os = __webpack_require__(12);
 
 exports.say = function (text, wrap) {
 	delimiters = {
@@ -33655,7 +33677,7 @@ function bottom (length) {
 }
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports) {
 
 // Generated code
@@ -33709,13 +33731,13 @@ exports.cowdefs = {
 }
 
 /***/ }),
-/* 6 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(10);
-var replacer = __webpack_require__(8);
+var path = __webpack_require__(13);
+var replacer = __webpack_require__(11);
 
-var cowdefs = __webpack_require__(5).cowdefs;
+var cowdefs = __webpack_require__(8).cowdefs;
 
 var textCache = {};
 
@@ -33744,7 +33766,7 @@ exports.list = function (callback) {
 
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports) {
 
 var modes = {
@@ -33797,7 +33819,7 @@ module.exports = function (options) {
 
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = function (cow, variables) {
@@ -33846,7 +33868,7 @@ function extractTheCow (cow) {
 }
 
 /***/ }),
-/* 9 */
+/* 12 */
 /***/ (function(module, exports) {
 
 exports.endianness = function () { return 'LE' };
@@ -33897,7 +33919,7 @@ exports.EOL = '\n';
 
 
 /***/ }),
-/* 10 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -34125,10 +34147,10 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -34319,3 +34341,4 @@ process.umask = function() { return 0; };
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
