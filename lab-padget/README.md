@@ -37,6 +37,8 @@ npm init
 npm install -S angular babel-core babel-loader babel-preset-es2015 css-loader extract-text-webpack-plugin html-webpack-plugin node-sass sass-loader webpack style-loader
 
 npm i -D angular-mocks jasmine jasmine-core karma karma-chrome-launcher karma-jasmine karma-webpack webpack-dev-server
+
+karma -init
 ```
 
 Add the following to package.json:
@@ -85,6 +87,29 @@ https://helloacm.com/cowsay/
 
 Add `$log.log(cowsay);` to index.js in the `CowsayController` function.
 Open your console in the web browser and explore cowsay.
+
+## Test Setup
+```
+karma init karma.conf.js
+
+Which testing framework do you want to use ?
+> jasmine
+
+Do you want to use Require.js ?
+> no
+
+Do you want to capture any browsers automatically ?
+> Chrome
+
+What is the location of your source and test files ?
+> test/**/*-test.js
+
+Should any of the files included by the previous patterns be excluded ?
+> no
+
+Do you want Karma to watch all the files and run the tests on change ?
+> no
+```
 
 ## Running Tests
 In [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (Terminal) enter the command:
